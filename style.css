@@ -9,6 +9,20 @@
     3. Footer  
 */
 
+:root {
+    --primary-clr: #e3f2fd;
+    --secondary-clr: #212121;
+    --bg-clr: #b0bec5;
+    --theme-clr: #1A1A47;
+
+    --fs: 3rem;
+
+    --ff: Arial, Helvetica, sans-serif;
+
+    --bs: rgba(0, 0, 0, 0.24) 0px 3px 8px,
+          rgba(0, 0, 0, 0.18) 0px 1px 5px;
+}
+
 
 /* 0. Global */
 * {
@@ -18,8 +32,10 @@
 }
 
 body {
-    background: #b0bec5;
+    background: var(--bg-clr);
+    font-family: var(--ff);
 }
+
 
 /* 1. Header */
 .header {
@@ -32,10 +48,12 @@ body {
 
 .header-title {
     font-family: 'Press Start 2P', cursive;
-    font-size: 3rem;
+    color: var(--theme-clr);
+    font-size: var(--fs);
     padding: 1.3rem;
     text-align: center;
 }
+
 
 /* 2. Main */
 .main {
@@ -47,12 +65,95 @@ body {
     margin: 0 auto;
 }
 
+
 /* 2.1. Settings */
-.form {
-    border: 1px solid blue;
+.settings {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    
 }
+
+.btn, 
+input[type='color']:active {
+    transition: transform 0.02s ease-in-out;
+    transform: scale(1);
+  }
+  
+input[type='color'] {
+    -webkit-appearance: none;
+    width: 70px;
+    height: 70px;
+    border: none;
+    cursor: pointer;
+  }
+  
+input[type='color']::-webkit-color-swatch-wrapper {
+    padding: 0;
+  }
+  
+input[type='color']::-webkit-color-swatch {
+    border: none;
+    box-shadow: var(--bs);
+  }
+  
+.btn {
+    background: var(--bg-clr);
+    font-size: 1rem;
+    padding: .7em 2em;
+    width: 100%;
+    margin: 1em;
+    border-radius: 5px;
+    border: 1px solid var(--secondary-clr);
+    cursor: pointer;
+}
+
+.btn.active {
+    background-color: var(--theme-clr);
+    color: var(--primary-clr);
+}
+
+.btn,
+input[type='color'] {
+    transition: transform 0.7s ease-in-out;
+  }
+
+.btn:hover,
+input[type='color']:hover {
+    transform: scale(1.05);
+  }
+
+.size-value {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    width: 100%;
+    background-color: var(--primary-clr);
+    cursor: pointer;
+    border: none;
+}
+
+input[type='range']::-webkit-slider-runnable-track {
+    height: 10px;
+    border: 1px solid var(--secondary-clr);
+    border-radius: 25px;
+    background: var(--primary-clr);
+  }
+
+input[type='range']::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 25px;
+    margin-top: -8px;
+    background: var(--theme-clr);
+  }
+
 
 /* 2.2. Grid */
 .grid {
