@@ -142,7 +142,7 @@ input[type='range']::-webkit-slider-runnable-track {
     height: 10px;
     border: 1px solid var(--secondary-clr);
     border-radius: 25px;
-    background: var(--primary-clr);
+    background: var(--bg-clr);
   }
 
 input[type='range']::-webkit-slider-thumb {
@@ -158,4 +158,22 @@ input[type='range']::-webkit-slider-thumb {
 /* 2.2. Grid */
 .grid {
     border: 1px solid yellow;
+}
+
+/* Footer */
+.footer {
+    display: flex;
+    color: var(--theme-clr);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1.1rem;
+    padding: 1em;
+    margin-top: 1.23em;
+}
+
+.fa-github {
+    margin-left: .3em;
+    font-size: 1.2rem;
+    color: var(--theme-clr);
 }
