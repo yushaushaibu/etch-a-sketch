@@ -82,7 +82,7 @@ body {
     justify-content: center;
     align-items: center;
     width: 200px;
-    
+    padding: .2em;
 }
 
 .btn, 
@@ -209,7 +209,7 @@ input[type='range']::-webkit-slider-thumb {
 
     .main {
         flex-direction: column-reverse;
-        height: 830px;
+        height: 825px;
         gap: 30px;
     }
 
