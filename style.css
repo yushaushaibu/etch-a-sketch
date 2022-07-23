@@ -14,6 +14,7 @@
     --secondary-clr: #212121;
     --bg-clr: #b0bec5;
     --theme-clr: #1A1A47;
+    --red-clr: red;
 
     --fs: 3rem;
     --fsMobile: 1.7rem;
@@ -50,7 +51,7 @@ body {
     align-items: center;
     height: 100px;
     width: 100%;
-    background: red;
+    background: var(--red-clr);
 }
 
 .header-title {

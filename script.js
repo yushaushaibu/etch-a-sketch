@@ -1,4 +1,12 @@
 const grid = document.getElementById('grid');
+const colorPicker = document.getElementById('colorPicker');
+const colorMode = document.getElementById('colorMode');
+const rainbowMode = document.getElementById('rainbowMode');
+const eraser = document.getElementById('eraser');
+const clear = document.getElementById('clear');
+const sizeSlider = document.getElementById('sizeSlider');
+console.log(sizeSlider);
+
 
 // for(let i = 0; i <= 256; i++) {
 //     const item = document.createElement('div');
