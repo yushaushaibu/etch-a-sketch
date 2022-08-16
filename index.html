@@ -1,41 +1,49 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Etch-A-Sketch</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <header class="header">
-            <h1 class="header-title">Etch-a-Sketch</h1>
-        </header>
-        <main class="main">
-            <div class="settings">
-                    <input type="color" name="colorPicker" id="colorPicker">
-                    <button class="btn" id="colorBtn">Color mode</button>
-                    <button class="btn" id="rainbowBtn">Rainbow mode</button>
-                    <button class="btn" id="eraserBtn">Eraser</button>
-                    <button class="btn" id="clearBtn">Clear</button>
-                    <div id="sizeValue" class="size-value">64 x 64</div>
-                    <input type="range" id="sizeSlider" min="1" max="64" value="16" >
-            </div>
-            <div id="grid"> </div>
-        </main>
-        <footer class="footer">
-                <p>
-                  Copyright ©
-                  <script>
-                    document.write(new Date().getFullYear())
-                  </script>
-                  yushaushaibu
-                </p>
-                <a href="https://github.com/yushaushaibu" target="_blank">
-                    <i class="fab fa-github"></i></a>
-        </footer>
-        <script src="script.js" async defer></script>
-    </body>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Etch-A-Sketch</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <h1 class="header-title">Etch-a-Sketch</h1>
+    </header>
+    <main class="main">
+      <div class="settings">
+        <input type="color" name="colorPicker" id="colorPicker" />
+        <button class="btn" id="colorBtn">Color mode</button>
+        <button class="btn" id="rainbowBtn">Rainbow mode</button>
+        <button class="btn" id="eraserBtn">Eraser</button>
+        <button class="btn" id="clearBtn">Clear</button>
+        <div id="sizeValue" class="size-value">64 x 64</div>
+        <input type="range" id="sizeSlider" min="1" max="64" value="16" />
+      </div>
+      <div id="grid" class="grid"></div>
+    </main>
+    
+    <footer class="footer">
+      <p>
+        Copyright ©
+        <script>
+          document.write(new Date().getFullYear());
+        </script>
+        yushaushaibu
+      </p>
+      <a href="https://github.com/yushaushaibu" target="_blank">
+        <i class="fab fa-github"></i
+      ></a>
+    </footer>
+    <script src="script.js" async defer></script>
+  </body>
 </html>

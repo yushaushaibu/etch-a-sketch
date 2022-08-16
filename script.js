@@ -7,21 +7,9 @@ const clearBtn = document.getElementById("clearBtn");
 const sizeValue = document.getElementById("sizeValue");
 const sizeSlider = document.getElementById("sizeSlider");
 
-function makeCells(rows, cols) {
-  grid.style.setProperty("--grid-rows", rows);
-  grid.style.setProperty("--grid-cols", cols);
-  for (i = 0; i < rows * cols; i++) {
-    let cell = document.createElement("div");
-    //   cell.innerText = (i + 1);
-    grid.appendChild(cell).className = "grid-item";
-  }
-}
-
-makeCells(16, 16);
-
 const DEFAULT_COLOR = "#1A1A47";
 const DEFAULT_MODE = "color";
-const DEFAULT_SLIDER_SIZE = 16;
+const DEFAULT_SLIDER_SIZE = 16
 
 let currentColor = DEFAULT_COLOR;
 let currentMode = DEFAULT_MODE;
@@ -47,11 +35,64 @@ colorPicker.oninput = (e) => setCurrentColor(e.target.value);
 colorBtn.onclick = () => setCurrentMode("color");
 rainbowBtn.onclick = () => setCurrentMode("rainbow");
 eraserBtn.onclick = () => setCurrentMode("eraser");
-clearBtn.onclick = () => reloadGrid();
+clearBtn.onclick = () => gridReload();
 
 /** sizeValueUpdate() shows value changes by dragging mouse cursor over the slider */
 sizeSlider.onmousemove = (e) => sizeValueUpdate(e.target.value);
 sizeSlider.onchange = (e) => changeSize(e.target.value);
+
+let mouseDown = false
+document.body.onmousedown = () => (mouseDown = true)
+document.body.onmouseup = () => (mouseDown = false)
+
+/** Maintains slider newly updated size */
+function changeSize(value) {
+  setCurrentSize(value);
+  sizeValueUpdate(value);
+  gridReload();
+}
+
+/** Slider size changes */
+function sizeValueUpdate(value) {
+  sizeValue.innerHTML = `${value} x ${value}`;
+}
+
+function gridReload() {
+  clearGrid();
+  setupGrid(currentSize);
+}
+
+/* clears shapes in grid */
+function clearGrid() {
+  grid.innerHTML = "";
+}
+
+function setupGrid(size) {
+  grid.style.gridTemplateColumns = `repeat(${size}, 1fr)`
+  grid.style.gridTemplateRows = `repeat(${size}, 1fr)`
+
+  for (let i = 0; i < size * size; i++) {
+    const gridElement = document.createElement('div')
+    gridElement.classList.add('grid-element')
+    gridElement.addEventListener('mouseover', changeColor)
+    gridElement.addEventListener('mousedown', changeColor)
+    grid.appendChild(gridElement)
+  }
+}
+
+function changeColor(e) {
+  if (e.type === 'mouseover' && !mouseDown) return
+  if (currentMode === 'rainbow') {
+    const randomR = Math.floor(Math.random() * 256)
+    const randomG = Math.floor(Math.random() * 256)
+    const randomB = Math.floor(Math.random() * 256)
+    e.target.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`
+  } else if (currentMode === 'color') {
+    e.target.style.backgroundColor = currentColor
+  } else if (currentMode === 'eraser') {
+    e.target.style.backgroundColor = '#fefefe'
+  }
+}
 
 /** Called in setCurrentMode(). Clicked button activates and styled with theme color */
 function activateButton(newMode) {
@@ -72,13 +113,8 @@ function activateButton(newMode) {
   }
 }
 
-/** Slider size changes */
-function sizeValueUpdate(value) {
-  sizeValue.innerHTML = `${value} x ${value}`;
-}
+window.onload = () => {
+  setupGrid(DEFAULT_SLIDER_SIZE);
+  activateButton(DEFAULT_MODE);
+};
 
-/** Maintains slider newly updated size */
-function changeSize(value) {
-  setCurrentSize(value);
-  sizeValueUpdate(value);
-}
